@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # Copyright 2018, XOE Solutions
 # Copyright 2018 Rafis Bikbov <https://it-projects.info/team/bikbov>
+# Copyright 2019 Yan Chirino <https://xoe.solutions/>
 # License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).
 
 """Pinguin module for Odoo REST Api.
@@ -29,7 +30,7 @@ import collections
 
 import odoo
 from odoo.service import security
-from odoo.addons.report.controllers.main import ReportController
+from odoo.addons.web.controllers.main import ReportController
 
 try:
     import simplejson as json
