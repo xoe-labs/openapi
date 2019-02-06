@@ -6,12 +6,15 @@
 import collections
 import urllib
 import uuid
+import time
+import datetime
 
 try:
     import urlparse
 except ImportError:
     import urllib.parse as urlparse
 
+from odoo.tools.misc import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT
 from odoo import models, fields, api
 from ..controllers import pinguin
 
@@ -92,7 +95,7 @@ class Namespace(models.Model):
             ('swagger', '2.0'),
             ('info', {
                 "title": self.name,
-                "version": self.write_date
+                "version": self.write_date.strftime(DEFAULT_SERVER_DATETIME_FORMAT)
             }),
             ('host', parsed_current_host.netloc),
             ('basePath', "/api/v1/%s" % self.name),
