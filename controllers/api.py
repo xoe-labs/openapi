@@ -115,7 +115,7 @@ class ApiV1Controller(http.Controller):
     @pinguin.route(
         _api_endpoint_model_id,
         methods=['PUT'],
-        type='http',
+        type='json',
         auth='none',
         csrf=False)
     def update_one__PUT(self, namespace, model, id, **data):
