@@ -65,7 +65,6 @@ class Access(models.Model):
         string='Creation Context Presets',
         help="Can be used to pass default values or custom context",
         domain="[('model_id', '=', model_id)]",
-        context="{'default_model_id': model_id}",
     )
 
     _sql_constraints = [
