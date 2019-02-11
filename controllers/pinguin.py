@@ -35,12 +35,14 @@ import datetime
 from odoo.service import security
 from odoo.addons.web.controllers.main import ReportController
 from odoo.tools.misc import DEFAULT_SERVER_DATE_FORMAT, DEFAULT_SERVER_DATETIME_FORMAT
+
 try:
     import simplejson as json
 except ImportError:
     import json
 
-from odoo.http import request, route as http_route
+from .apijsonrequest import api_route
+from odoo.http import request
 from psycopg2.extensions import ISOLATION_LEVEL_READ_COMMITTED
 
 ####################################
@@ -302,9 +304,10 @@ def route(*args, **kwargs):
     """
     def decorator(controller_method):
 
-        @http_route(*args, **kwargs)
+        @api_route(*args, **kwargs)
         @functools.wraps(controller_method)
         def controller_method_wrapper(*iargs, **ikwargs):
+
             auth_header = get_auth_header(request.httprequest.headers, raise_exception=True)
             db_name, user_token = get_data_from_auth_header(auth_header)
             setup_db(request.httprequest, db_name)
