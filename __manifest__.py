@@ -24,11 +24,12 @@
     ],
     "external_dependencies": {"python": ['bravado_core', 'swagger_spec_validator'], "bin": []},
     "data": [
-        "security/ir.model.access.csv",
         "views/assets.xml",
         "views/openapi_view.xml",
         "views/res_users_view.xml",
         "views/ir_model_view.xml",
+        "security/user_groups.xml",
+        "security/ir.model.access.csv",
     ],
     "demo": [
         "views/assets_demo.xml",
